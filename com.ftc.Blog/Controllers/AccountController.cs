@@ -28,17 +28,17 @@ namespace com.ftc.Blog.Controllers
             if (ModelState.IsValid)
             {
                 // 帳號密碼驗證
-                if (IsUserValid(model.Username, model.Password))
+                if (IsUserValid(model.Account, model.Password))
                 {
                     // 登入成功，設置身份驗證 Cookie 或其他識別標記
-                    FormsAuthentication.SetAuthCookie(model.Username, false);
+                    FormsAuthentication.SetAuthCookie(model.Account, false);
 
                     // 重新導向到首頁或其他需要登入後訪問的頁面
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ModelState.AddModelError("passward", "帳號或密碼不正確");
+                    ModelState.AddModelError("password", "帳號或密碼不正確");
                     //ModelState.Clear();
                 }
             }
