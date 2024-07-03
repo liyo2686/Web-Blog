@@ -47,6 +47,33 @@ namespace com.ftc.Blog.Controllers
             return View(model);
         }
 
+        // 登入請求的 POST 方法
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (string.IsNullOrEmpty(model.Account))
+                {
+                    ModelState.AddModelError("Account", "帳號不得為空");
+                    return View(model);
+                }
+                if (string.IsNullOrEmpty(model.Password))
+                {
+                    ModelState.AddModelError("Password", "密碼不得為空");
+                    return View(model);
+                }
+                else
+                {
+                    // 重新導向到首頁或其他需要登入後訪問的頁面
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View(model);
+        }
+
+
         // 假設這裡是一個簡單的帳號密碼驗證方法（實際應該從資料庫中驗證）
         private bool IsUserValid(string username, string password)
         {

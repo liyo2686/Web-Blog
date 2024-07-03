@@ -12,6 +12,7 @@ namespace com.ftc.Blog.Models
         [Display(Name = "帳號")]
         public string Account { get; set; }
         [Display(Name = "密碼")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         [Display(Name = "電子信箱")]
         public string Email { get; set; }
