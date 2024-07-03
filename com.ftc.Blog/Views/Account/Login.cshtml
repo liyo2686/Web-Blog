@@ -1,3 +1,4 @@
+@model com.ftc.Blog.Models.LoginViewModel
 @{
     ViewBag.Title = "Login";
 }
@@ -7,20 +8,31 @@
         <h1 id="title">Web Blog</h1>
         <p class="lead">Login page</p>
     </section>
-    <div class="row">   
+    <div class="row">
         <div>
-            <label for="account">帳號: </label>
-            <input type="text" name="user" id="account" class="form-control mb-3" />
-            <label for="password">密碼: </label>
-            <input type="password" name="password" id="password" class="form-control mb-3" />
-            <button id="loginButton" class="btn btn-primary">登入</button>
-            <button id="redirectToRegisterPageButton" class="btn btn-primary">註冊</button>
-            @section Scripts {
-                <script type="text/javascript">
-                    document.getElementById("redirectToRegisterPageButton").onclick = function () {
-            window.location.href = '@Url.Action("Register", "Account")';
-        };
-                </script>
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Username, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "請輸入帳號" })
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
             }
         </div>
     </div>

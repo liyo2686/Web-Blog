@@ -8,10 +8,10 @@ namespace com.ftc.Blog.Models
 {
     public class LoginViewModel
     {
-        [Required]
+        [Display(Name = "帳號")]
         public string Username { get; set; }
 
-        [Required]
+        [Display(Name = "密碼")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }
