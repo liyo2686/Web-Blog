@@ -1,0 +1,27 @@
+@{
+    ViewBag.Title = "Login";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Web Blog</h1>
+        <p class="lead">Login page</p>
+    </section>
+    <div class="row">   
+        <div>
+            <label for="account">±b¸¹: </label>
+            <input type="text" name="user" id="account" class="form-control mb-3" />
+            <label for="password">±K½X: </label>
+            <input type="password" name="password" id="password" class="form-control mb-3" />
+            <button id="loginButton" class="btn btn-primary">µn¤J</button>
+            <button id="redirectToRegisterPageButton" class="btn btn-primary">µù¥U</button>
+            @section Scripts {
+                <script type="text/javascript">
+                    document.getElementById("redirectToRegisterPageButton").onclick = function () {
+            window.location.href = '@Url.Action("Register", "Account")';
+        };
+                </script>
+            }
+        </div>
+    </div>
+</main>

@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+<div class="row">
+    <div>
+        <label for="account">帳號: </label>
+        <input type="text" placeholder="請輸入帳號" name="user" id="account" class="form-control mb-3" />
+
+        <label for="password">密碼: </label>
+        <input type="password" placeholder="請輸入密碼" name="password" id="password" class="form-control mb-3" />
+
+        <label for="password">密碼確認: </label>
+        <input type="password" placeholder="請再次輸入密碼" name="passwordConfirm" id="passwordConfirm" class="form-control mb-3" />
+
+        <label for="password">信箱: </label>
+        <input type="text" placeholder="請輸入電子信箱" name="mail" id="mail" class="form-control mb-3" />
+
+        <button id="registerButton" class="btn btn-primary">註冊</button>
+
+        <button id="redirectToLoginPageButton" class="btn btn-primary">已有帳號?點選登入</button>
+        @section Scripts {
+            <script type="text/javascript">
+                document.getElementById("redirectToLoginPageButton").onclick = function () {
+            window.location.href = '@Url.Action("Login", "Account")';
+        };
+            </script>
+        }
+    </div>
+</div>

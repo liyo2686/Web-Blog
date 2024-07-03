@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.ftc.Blog", "com.ftc.Blog\com.ftc.Blog.csproj", "{781023CA-E12E-4F83-AFA2-C2F01807798A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{781023CA-E12E-4F83-AFA2-C2F01807798A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{781023CA-E12E-4F83-AFA2-C2F01807798A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{781023CA-E12E-4F83-AFA2-C2F01807798A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{781023CA-E12E-4F83-AFA2-C2F01807798A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07822BE1-A366-440A-9630-DFE31604B937}
+	EndGlobalSection
+EndGlobal

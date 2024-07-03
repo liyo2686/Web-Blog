@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|c:\\users\\user\\desktop\\com.ftc.blog\\com.ftc.blog\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|solutionrelative:com.ftc.blog\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|c:\\users\\user\\desktop\\com.ftc.blog\\com.ftc.blog\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|solutionrelative:com.ftc.blog\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|c:\\users\\user\\desktop\\com.ftc.blog\\com.ftc.blog\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|solutionrelative:com.ftc.blog\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|c:\\users\\user\\desktop\\com.ftc.blog\\com.ftc.blog\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|solutionrelative:com.ftc.blog\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|c:\\users\\user\\desktop\\com.ftc.blog\\com.ftc.blog\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|solutionrelative:com.ftc.blog\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|c:\\users\\user\\desktop\\com.ftc.blog\\com.ftc.blog\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|solutionrelative:com.ftc.blog\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|c:\\users\\user\\desktop\\com.ftc.blog\\com.ftc.blog\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|solutionrelative:com.ftc.blog\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|c:\\users\\user\\desktop\\com.ftc.blog\\com.ftc.blog\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|solutionrelative:com.ftc.blog\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|c:\\users\\user\\desktop\\com.ftc.blog\\com.ftc.blog\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|solutionrelative:com.ftc.blog\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|c:\\users\\user\\desktop\\com.ftc.blog\\com.ftc.blog\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{781023CA-E12E-4F83-AFA2-C2F01807798A}|com.ftc.Blog\\com.ftc.Blog.csproj|solutionrelative:com.ftc.blog\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "com.ftc.Blog\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "com.ftc.Blog\\Views\\Account\\Register.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABwAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-03T03:06:33.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "com.ftc.Blog\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "com.ftc.Blog\\Views\\Account\\Login.cshtml",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAowBcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-03T01:54:20.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "com.ftc.Blog\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "com.ftc.Blog\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAwAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-03T01:50:10.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "com.ftc.Blog\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "com.ftc.Blog\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAywBsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-03T01:00:08.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "com.ftc.Blog\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "com.ftc.Blog\\Views\\Home\\Contact.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAwBIAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-03T01:54:45.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "com.ftc.Blog\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "com.ftc.Blog\\Views\\Home\\About.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAwAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-03T01:50:09.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "com.ftc.Blog\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "com.ftc.Blog\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAwwAsAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-03T01:51:49.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "com.ftc.Blog\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "com.ftc.Blog\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-03T03:27:09.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Web.config",
+              "RelativeDocumentMoniker": "com.ftc.Blog\\Views\\Web.config",
+              "ToolTip": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\Web.config",
+              "RelativeToolTip": "com.ftc.Blog\\Views\\Web.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-07-03T02:26:44.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "com.ftc.Blog\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\com.ftc.Blog\\com.ftc.Blog\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "com.ftc.Blog\\Views\\_ViewStart.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-03T02:26:45.302Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
