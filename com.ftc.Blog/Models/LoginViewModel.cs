@@ -9,7 +9,7 @@ namespace com.ftc.Blog.Models
     public class LoginViewModel
     {
         [Display(Name = "帳號")]
-        public string Username { get; set; }
+        public string Account { get; set; }
 
         [Display(Name = "密碼")]
         [DataType(DataType.Password)]
