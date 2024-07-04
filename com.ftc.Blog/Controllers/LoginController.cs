@@ -10,6 +10,7 @@ namespace com.ftc.Blog.Controllers
 {
     public class LoginController : Controller
     {
+        private WebBlogDBEntities db = new WebBlogDBEntities();
         // GET: Login
         public ActionResult Login()
         {
@@ -30,7 +31,7 @@ namespace com.ftc.Blog.Controllers
                     FormsAuthentication.SetAuthCookie(model.Account, false);
 
                     // 重新導向到首頁或其他需要登入後訪問的頁面
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Post", "Post");
                 }
                 else
                 {
@@ -44,10 +45,10 @@ namespace com.ftc.Blog.Controllers
         }
 
         // 假設這裡是一個簡單的帳號密碼驗證方法（實際應該從資料庫中驗證）
-        private bool IsUserValid(string username, string password)
+        private bool IsUserValid(string account, string password)
         {
-            //目前測試用
-            if (username == "123" && password == "123")
+            //驗證與資料庫的帳號密碼是否一致
+            if (db.Users.Any(u => u.Account == account && u.Password == password))
             {
                 return true;
             }
