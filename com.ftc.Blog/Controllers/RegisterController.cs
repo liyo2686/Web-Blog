@@ -39,8 +39,17 @@ namespace com.ftc.Blog.Controllers
                 }
                 else
                 {
+                    var user = new Users()
+                    {
+                        Account = model.Account,
+                        Password = model.Password,
+                        Email = model.Email
+                    };
+
+                    db.Users.Add(user);
+                    db.SaveChanges();
                     // 重新導向到首頁或其他需要登入後訪問的頁面
-                    return RedirectToAction("Post", "Post");
+                    return RedirectToAction("Login", "Login");
                 }
             }
             return View(model);
