@@ -9,6 +9,7 @@ namespace com.ftc.Blog.Controllers
 {
     public class RegisterController : Controller
     {
+        private WebBlogDBEntities db = new WebBlogDBEntities();
         // GET: Register
         public ActionResult Register()
         {
@@ -32,10 +33,14 @@ namespace com.ftc.Blog.Controllers
                     ModelState.AddModelError("Password", "密碼不得為空");
                     return View(model);
                 }
+                if (db.Users.Any(u => u.Account == model.Account)){
+                    ModelState.AddModelError("Account", "此帳號已存在");
+                    return View(model);
+                }
                 else
                 {
                     // 重新導向到首頁或其他需要登入後訪問的頁面
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Post", "Post");
                 }
             }
             return View(model);
