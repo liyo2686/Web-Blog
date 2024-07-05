@@ -1,0 +1,38 @@
+﻿@model com.ftc.Blog.Models.Article_View_Model
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Web Blog</h1>
+        <p class="lead">撰寫文章</p>
+    </section>
+    <div class="row">
+        <div>
+            @using (Html.BeginForm("addArticle", "Article", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    @Html.LabelFor(a => a.Title, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(a => a.Title, new { @class = "form-control", placeholder = "請輸入標題" })
+                        @Html.ValidationMessageFor(a => a.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(a => a.Content, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(a => a.Content, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.Content, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-primary">發文</button>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</main>
