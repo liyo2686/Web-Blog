@@ -1,5 +1,4 @@
-﻿using com.ftc.Blog.DB;
-using com.ftc.Blog.Models;
+﻿using com.ftc.Blog.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
