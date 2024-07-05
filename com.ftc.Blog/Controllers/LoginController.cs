@@ -44,7 +44,6 @@ namespace com.ftc.Blog.Controllers
             return View(model);
         }
 
-        // 假設這裡是一個簡單的帳號密碼驗證方法（實際應該從資料庫中驗證）
         private bool IsUserValid(string account, string password)
         {
             //驗證與資料庫的帳號密碼是否一致

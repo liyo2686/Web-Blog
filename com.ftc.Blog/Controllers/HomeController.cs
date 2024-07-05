@@ -10,21 +10,15 @@ namespace com.ftc.Blog.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Post", "Post");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

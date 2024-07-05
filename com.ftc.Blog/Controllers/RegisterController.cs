@@ -45,7 +45,7 @@ namespace com.ftc.Blog.Controllers
                         Password = model.Password,
                         Email = model.Email
                     };
-
+                    //Users table 加入 user資料
                     db.Users.Add(user);
                     db.SaveChanges();
                     // 重新導向到首頁或其他需要登入後訪問的頁面
