@@ -21,6 +21,9 @@
                     <li>@Html.ActionLink("首頁", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("關於", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("連絡人", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <a href="@Url.Action("Logout", "Logout")">
+                        <img src="~/Images/logout.jpg" alt="Image" width="50" height="50"/>
+                    </a>
                 </ul>
             </div>
         </div>
@@ -38,3 +41,5 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+
