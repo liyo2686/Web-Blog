@@ -1,4 +1,5 @@
-﻿using System;
+﻿using com.ftc.Blog.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +14,6 @@ namespace com.ftc.Blog.Controllers
         {
             return View();
         }
+   
     }
 }
