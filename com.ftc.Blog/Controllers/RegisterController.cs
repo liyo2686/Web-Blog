@@ -9,7 +9,7 @@ namespace com.ftc.Blog.Controllers
 {
     public class RegisterController : Controller
     {
-        private WebBlogDBEntities db = new WebBlogDBEntities();
+        private WebBlogDBEntities1 db = new WebBlogDBEntities1();
         // GET: Register
         public ActionResult Register()
         {

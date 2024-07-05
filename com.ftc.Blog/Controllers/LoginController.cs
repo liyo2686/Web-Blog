@@ -1,4 +1,5 @@
-﻿using com.ftc.Blog.Models;
+﻿using com.ftc.Blog.DB;
+using com.ftc.Blog.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace com.ftc.Blog.Controllers
 {
     public class LoginController : Controller
     {
-        private WebBlogDBEntities db = new WebBlogDBEntities();
+        private WebBlogDBEntities1 db = new WebBlogDBEntities1();
         // GET: Login
         public ActionResult Login()
         {
