@@ -27,7 +27,7 @@
                         @if (User.Identity.IsAuthenticated && item.UserID == currentUserId)
                         {
                             <div class="col-md-offset-2 col-md-10">
-                                <button type="button" class="btn btn-primary" id="editPostButton">修改</button>
+                                <button type="button" class="btn btn-primary editPostButton" data-id="@item.PostID">修改</button>
                             </div>
                         }
                     </td>
@@ -48,11 +48,12 @@
         document.getElementById("addPostButton").onclick = function () {
             window.location.href = '@Url.Action("addArticle", "Article")';
         };
-    </script>
 
-    <script type="text/javascript">
-        document.getElementById("editPostButton").onclick = function () {
-            window.location.href = '@Url.Action("editArticle", "Article")';
-        };
+        document.querySelectorAll(".editPostButton").forEach(function(button) {
+            button.onclick = function () {
+                var postId = this.getAttribute("data-id");
+                window.location.href = '@Url.Action("editArticle", "Article")';
+            };
+        });
     </script>
 }
