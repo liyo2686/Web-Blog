@@ -26,7 +26,9 @@
                     <td>
                         @if (User.Identity.IsAuthenticated && item.UserID == currentUserId)
                         {
-                            @Html.ActionLink("Edit", "Edit", new { id = item.PostID }, new { @class = "btn btn-primary" })
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="button" class="btn btn-primary" id="editPostButton">修改</button>
+                            </div>
                         }
                     </td>
                 </tr>
@@ -45,6 +47,12 @@
     <script type="text/javascript">
         document.getElementById("addPostButton").onclick = function () {
             window.location.href = '@Url.Action("addArticle", "Article")';
+        };
+    </script>
+
+    <script type="text/javascript">
+        document.getElementById("editPostButton").onclick = function () {
+            window.location.href = '@Url.Action("editArticle", "Article")';
         };
     </script>
 }

@@ -10,6 +10,7 @@ namespace com.ftc.Blog.Controllers
     public class ArticleController : Controller
     {
         private WebBlogDBEntities1 db = new WebBlogDBEntities1();
+
         // GET: Article
         public ActionResult addArticle()
         {
@@ -20,7 +21,7 @@ namespace com.ftc.Blog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult addArticle(Article_View_Model model)
-        {
+        {   
             if (ModelState.IsValid)
             {
                 string currentUserAccount = User.Identity.Name;
@@ -44,6 +45,32 @@ namespace com.ftc.Blog.Controllers
 
             // 如果模型驗證失敗，返回原始的新增文章的視圖，並顯示驗證錯誤訊息
             return View(model);
+        }
+        public ActionResult editArticle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult editArticle(Article_View_Model model)
+        {
+            if (ModelState.IsValid)
+            {
+                // 取得要編輯的文章
+                Articles article = db.Articles.Find(model.PostID);
+
+                // 更新文章內容
+                article.Title = model.Title;
+                article.Content = model.Content;
+
+                // 保存到資料庫
+                db.SaveChanges();
+
+                return RedirectToAction("Post"); // 編輯成功，重新導向到文章列表
+            }
+
+            return View(model); // 如果模型狀態無效，返回編輯視圖
         }
     }
 }
