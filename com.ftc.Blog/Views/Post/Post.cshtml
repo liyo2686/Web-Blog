@@ -1,17 +1,46 @@
-﻿
+﻿@model IEnumerable<com.ftc.Blog.Models.Article_View_Model>
 @{
     ViewBag.Title = "Post";
+    int currentUserId = ViewBag.CurrentUserId;
 }
 
 <h2>Post</h2>
 
 <main>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Title)</th>
+                <th>@Html.DisplayNameFor(model => model.Content)</th>
+                <th>@Html.DisplayNameFor(model => model.CreatedTime)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Content)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreatedTime)</td>
+                    <td>
+                        @if (User.Identity.IsAuthenticated && item.UserID == currentUserId)
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.PostID }, new { @class = "btn btn-primary" })
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <button type="button" class="btn btn-primary" id="addPostButton">發表文章</button>
         </div>
     </div>
 </main>
+
 @section Scripts {
     <script type="text/javascript">
         document.getElementById("addPostButton").onclick = function () {
