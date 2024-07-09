@@ -26,14 +26,24 @@
                     <td>
                         @if (User.Identity.IsAuthenticated && item.UserID == currentUserId)
                         {
-                            using (Html.BeginForm("editArticle", "Article", FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
-                            {
-                                @Html.AntiForgeryToken()
-                                <div class="col-md-offset-2 col-md-10">
-                                    <input type="hidden" name="postId" value="@item.PostID" />
-                                    <a href="@Url.Action("EditArticle", "Article", new { postId = @item.PostID })">修改</a>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    @using (Html.BeginForm("EditArticle", "Article", FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("postId", item.PostID)
+                                        <input type="submit" value="修改" class="btn btn-primary" />
+                                    }
                                 </div>
-                            }
+                                <div class="col-md-1">
+                                    @using (Html.BeginForm("DeleteArticle", "Article", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("postId", item.PostID)
+                                        <input type="submit" value="刪除" class="btn btn-danger" onclick="return confirm('確定要刪除這篇文章?');" />
+                                    }
+                                </div>
+                            </div>
                         }
                     </td>
                 </tr>

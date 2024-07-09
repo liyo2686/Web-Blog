@@ -77,5 +77,27 @@ namespace com.ftc.Blog.Controllers
 
             return View(model); // 如果模型狀態無效，返回編輯視圖
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteArticle(Article_View_Model model)
+        {
+            if (ModelState.IsValid)
+            {
+                Articles article = db.Articles.Find(model.PostID);
+
+                if (article == null)
+                {
+                    return HttpNotFound();
+                }
+
+                db.Articles.Remove(article);
+                db.SaveChanges();
+
+                return RedirectToAction("Post", "Post");
+            }
+
+            return View(model); // 如果模型狀態無效，返回編輯視圖
+        }
     }
 }
