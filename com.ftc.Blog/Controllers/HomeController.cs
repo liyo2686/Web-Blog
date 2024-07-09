@@ -12,11 +12,11 @@ namespace com.ftc.Blog.Controllers
         {
             if (this.User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Post", "Post");
+                return RedirectToAction("Index", "Post");
             }
             else
             {
-                return RedirectToAction("Login", "Login");
+                return RedirectToAction("Index", "Login");
             }
         }
 

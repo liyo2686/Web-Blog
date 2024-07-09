@@ -12,7 +12,7 @@ namespace com.ftc.Blog.Controllers
     {
         private WebBlogDBEntities1 db = new WebBlogDBEntities1();
         // GET: Login
-        public ActionResult Login()
+        public ActionResult Index()
         {
             return View();
         }
@@ -20,7 +20,7 @@ namespace com.ftc.Blog.Controllers
         // 登入請求的 POST 方法
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginViewModel model)
+        public ActionResult Index(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -35,7 +35,7 @@ namespace com.ftc.Blog.Controllers
                     FormsAuthentication.SetAuthCookie(model.Account, false);
 
                     // 重新導向到首頁或其他需要登入後訪問的頁面
-                    return RedirectToAction("Post", "Post");
+                    return RedirectToAction("Index", "Post");
                 }
                 else
                 {

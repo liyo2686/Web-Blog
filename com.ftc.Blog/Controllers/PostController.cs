@@ -15,7 +15,7 @@ namespace com.ftc.Blog.Controllers
     {
         private WebBlogDBEntities1 db = new WebBlogDBEntities1();
         // GET: Post
-        public ActionResult Post(string searchString, int? page)
+        public ActionResult Index(string searchString, int? page)
         {
             int currentUserId = GetCurrentUserIdFromCookie();
             ViewBag.CurrentUserId = currentUserId; // 或者使用 ViewData 傳遞

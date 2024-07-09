@@ -13,7 +13,7 @@ namespace com.ftc.Blog.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Index", "Login");
         }
     }
 }

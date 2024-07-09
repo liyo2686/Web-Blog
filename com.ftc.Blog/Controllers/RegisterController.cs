@@ -49,7 +49,7 @@ namespace com.ftc.Blog.Controllers
                     db.Users.Add(user);
                     db.SaveChanges();
                     // 重新導向到首頁或其他需要登入後訪問的頁面
-                    return RedirectToAction("Login", "Login");
+                    return RedirectToAction("Index", "Login");
                 }
             }
             return View(model);

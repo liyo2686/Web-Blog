@@ -37,7 +37,7 @@ namespace com.ftc.Blog.Controllers
                 db.Articles.Add(article);
                 db.SaveChanges();
                 // 跳轉到文章列表
-                return RedirectToAction("Post", "Post");
+                return RedirectToAction("Index", "Post");
             }
             else
             {
@@ -72,7 +72,7 @@ namespace com.ftc.Blog.Controllers
                 // 保存到資料庫
                 db.SaveChanges();
 
-                return RedirectToAction("Post", "Post");
+                return RedirectToAction("Index", "Post");
             }
 
             return View(model); // 如果模型狀態無效，返回編輯視圖
@@ -94,7 +94,7 @@ namespace com.ftc.Blog.Controllers
                 db.Articles.Remove(article);
                 db.SaveChanges();
 
-                return RedirectToAction("Post", "Post");
+                return RedirectToAction("Index", "Post");
             }
 
             return View(model); // 如果模型狀態無效，返回編輯視圖
