@@ -7,6 +7,13 @@
     <h2>Post</h2>
 
     <main>
+        @using (Html.BeginForm("Post", "Post", FormMethod.Post))
+        {
+            <p>
+                @Html.TextBox("searchString", ViewBag.CurrentFilter as string, new { placeholder = "輸入搜尋名稱" })
+                <input type="submit" value="搜尋" class="btn btn-primary" />
+            </p>
+        }
         <table class="table">
             <thead>
                 <tr>

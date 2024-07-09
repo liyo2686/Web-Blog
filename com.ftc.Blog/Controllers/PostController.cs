@@ -13,7 +13,7 @@ namespace com.ftc.Blog.Controllers
     {
         private WebBlogDBEntities1 db = new WebBlogDBEntities1();
         // GET: Post
-        public ActionResult Post()
+        public ActionResult Post(string searchString)
         {
             int currentUserId = GetCurrentUserIdFromCookie();
             ViewBag.CurrentUserId = currentUserId; // 或者使用 ViewData 傳遞
@@ -25,6 +25,12 @@ namespace com.ftc.Blog.Controllers
                 Content = a.Content,
                 CreatedTime = a.CreatedTime
             }).ToList();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                articles = articles.Where(a => a.Title.Contains(searchString)).ToList();
+            }
+
             return View(articles.OrderByDescending(a => a.CreatedTime));
         }
 
