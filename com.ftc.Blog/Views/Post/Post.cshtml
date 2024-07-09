@@ -1,75 +1,82 @@
-﻿    @model IEnumerable<com.ftc.Blog.Models.Article_View_Model>
-    @{
-        ViewBag.Title = "Post";
-        int currentUserId = ViewBag.CurrentUserId;
+﻿@model IPagedList<com.ftc.Blog.Models.Article_View_Model>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Post";
+    int currentUserId = ViewBag.CurrentUserId;
+}
+
+<h2>Post</h2>
+
+<main>
+    @using (Html.BeginForm("Post", "Post", FormMethod.Post))
+    {
+        <p>
+            @Html.TextBox("searchString", ViewBag.CurrentFilter as string, new { placeholder = "輸入搜尋名稱" })
+            <input type="submit" value="搜尋" class="btn btn-primary" />
+        </p>
     }
-
-    <h2>Post</h2>
-
-    <main>
-        @using (Html.BeginForm("Post", "Post", FormMethod.Post))
-        {
-            <p>
-                @Html.TextBox("searchString", ViewBag.CurrentFilter as string, new { placeholder = "輸入搜尋名稱" })
-                <input type="submit" value="搜尋" class="btn btn-primary" />
-            </p>
-        }
-        <table class="table">
-            <thead>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>標題</th>
+                <th>內容</th>
+                <th>建立時間</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <th>@Html.DisplayNameFor(model => model.Title)</th>
-                    <th>@Html.DisplayNameFor(model => model.Content)</th>
-                    <th>@Html.DisplayNameFor(model => model.CreatedTime)</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Content)</td>
-                        <td>@Html.DisplayFor(modelItem => item.CreatedTime)</td>
-                        <td>
-                            @if (User.Identity.IsAuthenticated && item.UserID == currentUserId)
-                            {
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        @using (Html.BeginForm("EditArticle", "Article", FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
-                                        {
-                                            @Html.AntiForgeryToken()
-                                            @Html.Hidden("postId", item.PostID)
-                                            <input type="submit" value="修改" class="btn btn-primary" />
-                                        }
-                                    </div>
-                                    <div class="col-md-1">
-                                        @using (Html.BeginForm("DeleteArticle", "Article", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                                        {
-                                            @Html.AntiForgeryToken()
-                                            @Html.Hidden("postId", item.PostID)
-                                            <input type="submit" value="刪除" class="btn btn-danger" onclick="return confirm('確定要刪除這篇文章?');" />
-                                        }
-                                    </div>
+                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Content)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreatedTime)</td>
+                    <td>
+                        @if (User.Identity.IsAuthenticated && item.UserID == currentUserId)
+                        {
+                            <div class="row">
+                                <div class="col-md-3">
+                                    @using (Html.BeginForm("EditArticle", "Article", FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("postId", item.PostID)
+                                        <input type="submit" value="修改" class="btn btn-primary" />
+                                    }
                                 </div>
-                            }
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                                <div class="col-md-1">
+                                    @using (Html.BeginForm("DeleteArticle", "Article", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("postId", item.PostID)
+                                        <input type="submit" value="刪除" class="btn btn-danger" onclick="return confirm('確定要刪除這篇文章?');" />
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <button type="button" class="btn btn-primary" id="addPostButton">發表文章</button>
-            </div>
+
+    <div class="pager">
+        @Html.PagedListPager(Model, page => Url.Action("Post", new { page, searchString = ViewBag.CurrentFilter }))
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" class="btn btn-primary" id="addPostButton">發表文章</button>
         </div>
-    </main>
+    </div>
+</main>
 
-    @section Scripts {
-        <script type="text/javascript">
+@section Scripts {
+    <script type="text/javascript">
             document.getElementById("addPostButton").onclick = function () {
                 window.location.href = '@Url.Action("addArticle", "Article")';
             };
 
-        </script>
-    }
+    </script>
+}
