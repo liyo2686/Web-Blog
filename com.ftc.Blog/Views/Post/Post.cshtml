@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Post";
     int currentUserId = ViewBag.CurrentUserId;
+    var ArticleModel = Model.OrderByDescending(item => item.CreatedTime);
 }
 
 <h2>Post</h2>
@@ -17,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in ArticleModel)
             {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.Title)</td>
