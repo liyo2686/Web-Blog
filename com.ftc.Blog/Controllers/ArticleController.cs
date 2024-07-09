@@ -10,7 +10,6 @@ namespace com.ftc.Blog.Controllers
 {
     public class ArticleController : Controller
     {
-        private WebBlogDBEntities1 db = new WebBlogDBEntities1();
 
         // GET: Article
         public ActionResult addArticle()
@@ -26,16 +25,20 @@ namespace com.ftc.Blog.Controllers
             if (ModelState.IsValid)
             {
                 string currentUserAccount = User.Identity.Name;
-                var user = db.Users.FirstOrDefault(u => u.Account == currentUserAccount);
-                var article = new Articles
+                using (WebBlogDBEntities1 db = new WebBlogDBEntities1())
                 {
-                    Title = model.Title,
-                    Content = model.Content,
-                    UserID = user.UserID,
-                    CreatedTime = DateTime.Now
-                };
-                db.Articles.Add(article);
-                db.SaveChanges();
+                    var user = db.Users.FirstOrDefault(u => u.Account == currentUserAccount);
+                    var article = new Articles
+                    {
+                        Title = model.Title,
+                        Content = model.Content,
+                        UserID = user.UserID,
+                        CreatedTime = DateTime.Now
+                    };
+                    db.Articles.Add(article);
+                    db.SaveChanges();
+                }
+
                 // 跳轉到文章列表
                 return RedirectToAction("Index", "Post");
             }
@@ -63,14 +66,15 @@ namespace com.ftc.Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                // 取得要編輯的文章
-                Articles article = db.Articles.Find(model.PostID);
-                // 更新文章內容
-                article.Title = model.Title;
-                article.Content = model.Content;
-
-                // 保存到資料庫
-                db.SaveChanges();
+                using(WebBlogDBEntities1 db = new WebBlogDBEntities1()){
+                    // 取得要編輯的文章
+                    Articles article = db.Articles.Find(model.PostID);
+                    // 更新文章內容
+                    article.Title = model.Title;
+                    article.Content = model.Content;
+                    // 保存到資料庫
+                    db.SaveChanges();
+                }
 
                 return RedirectToAction("Index", "Post");
             }
@@ -84,15 +88,17 @@ namespace com.ftc.Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                Articles article = db.Articles.Find(model.PostID);
-
-                if (article == null)
+                using(WebBlogDBEntities1 db = new WebBlogDBEntities1())
                 {
-                    return HttpNotFound();
+                    Articles article = db.Articles.Find(model.PostID);
+                    if (article == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    db.Articles.Remove(article);
+                    db.SaveChanges();
                 }
 
-                db.Articles.Remove(article);
-                db.SaveChanges();
 
                 return RedirectToAction("Index", "Post");
             }

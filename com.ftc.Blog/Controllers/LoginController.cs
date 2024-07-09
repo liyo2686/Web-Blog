@@ -10,7 +10,6 @@ namespace com.ftc.Blog.Controllers
 {
     public class LoginController : Controller
     {
-        private WebBlogDBEntities1 db = new WebBlogDBEntities1();
         // GET: Login
         public ActionResult Index()
         {
@@ -27,13 +26,15 @@ namespace com.ftc.Blog.Controllers
                 // 帳號密碼驗證
                 if (IsUserValid(model.Account, model.Password))
                 {
-                    var user = db.Users.FirstOrDefault(u => u.Account == model.Account);
-                    int userId = GetUserIdFromDatabase(model.Account);
-                    SetUserIdCookie(userId); // 設置使用者 ID 到 cookie 中
+                    using (WebBlogDBEntities1 db = new WebBlogDBEntities1())
+                    {
+                        var user = db.Users.FirstOrDefault(u => u.Account == model.Account);
+                        int userId = GetUserIdFromDatabase(model.Account);
+                        SetUserIdCookie(userId); // 設置使用者 ID 到 cookie 中
 
-                    // 使用 FormsAuthentication.SetAuthCookie 設置身份驗證 cookie
-                    FormsAuthentication.SetAuthCookie(model.Account, false);
-
+                        // 使用 FormsAuthentication.SetAuthCookie 設置身份驗證 cookie
+                        FormsAuthentication.SetAuthCookie(model.Account, false);
+                    }
                     // 重新導向到首頁或其他需要登入後訪問的頁面
                     return RedirectToAction("Index", "Post");
                 }
@@ -50,15 +51,19 @@ namespace com.ftc.Blog.Controllers
 
         private bool IsUserValid(string account, string password)
         {
-            //驗證與資料庫的帳號密碼是否一致
-            if (db.Users.Any(u => u.Account == account && u.Password == password))
+            using (WebBlogDBEntities1 db = new WebBlogDBEntities1())
             {
-                return true;
+                //驗證與資料庫的帳號密碼是否一致
+                if (db.Users.Any(u => u.Account == account && u.Password == password))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                return false;
-            }
+
         }
 
         private void SetUserIdCookie(int userId)
@@ -69,17 +74,19 @@ namespace com.ftc.Blog.Controllers
 
         private int GetUserIdFromDatabase(string userAccount)
         {
-            // 使用 Entity Framework 進行資料庫查詢
-            var user = db.Users.FirstOrDefault(u => u.Account == userAccount);
-            if (user != null)
+            using (WebBlogDBEntities1 db = new WebBlogDBEntities1())
             {
-                return user.UserID;
+                // 使用 Entity Framework 進行資料庫查詢
+                var user = db.Users.FirstOrDefault(u => u.Account == userAccount);
+                if (user != null)
+                {
+                    return user.UserID;
+                }
+                else
+                {
+                    return -1;
+                }
             }
-            else
-            {
-                return -1;
-            }
-
         }
     }
 }   
