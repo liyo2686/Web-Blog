@@ -25,7 +25,7 @@ namespace com.ftc.Blog.Controllers
                 Content = a.Content,
                 CreatedTime = a.CreatedTime
             }).ToList();
-            return View(articles);
+            return View(articles.OrderByDescending(a => a.CreatedTime));
         }
 
         private int GetCurrentUserIdFromCookie()
@@ -39,7 +39,7 @@ namespace com.ftc.Blog.Controllers
                     return userId;
                 }
             }
-            return 0; // 如果 Cookie 中不存在或解析失败，返回适当的默认值
+            return 0;
         }
     }
 }
