@@ -62,7 +62,7 @@
 
 
     <div class="pager">
-        @Html.PagedListPager(Model, page => Url.Action("Post", new { page, searchString = ViewBag.CurrentFilter }))
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.CurrentFilter }))
     </div>
 
     <div class="form-group">
