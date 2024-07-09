@@ -26,9 +26,14 @@
                     <td>
                         @if (User.Identity.IsAuthenticated && item.UserID == currentUserId)
                         {
-                            <div class="col-md-offset-2 col-md-10">
-                                <button type="button" class="btn btn-primary editPostButton" data-id="@item.PostID">修改</button>
-                            </div>
+                            using (Html.BeginForm("editArticle", "Article", FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="hidden" name="postId" value="@item.PostID" />
+                                    <a href="@Url.Action("EditArticle", "Article", new { postId = @item.PostID })">修改</a>
+                                </div>
+                            }
                         }
                     </td>
                 </tr>
@@ -49,11 +54,5 @@
             window.location.href = '@Url.Action("addArticle", "Article")';
         };
 
-        document.querySelectorAll(".editPostButton").forEach(function(button) {
-            button.onclick = function () {
-                var postId = this.getAttribute("data-id");
-                window.location.href = '@Url.Action("editArticle", "Article")';
-            };
-        });
     </script>
 }

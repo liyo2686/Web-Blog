@@ -16,7 +16,7 @@ namespace com.ftc.Blog.Controllers
         public ActionResult Post()
         {
             int currentUserId = GetCurrentUserIdFromCookie();
-            ViewBag.CurrentUserId = currentUserId; // 或者使用 ViewBag 或 ViewData 傳遞
+            ViewBag.CurrentUserId = currentUserId; // 或者使用 ViewData 傳遞
             List<Article_View_Model> articles = db.Articles.Select(a => new Article_View_Model
             {
                 PostID = a.PostID,
