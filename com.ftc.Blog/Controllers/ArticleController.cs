@@ -12,7 +12,7 @@ namespace com.ftc.Blog.Controllers
     {
 
         // GET: Article
-        public ActionResult addArticle()
+        public ActionResult AddArticle()
         {
             return View();
         }
@@ -20,7 +20,7 @@ namespace com.ftc.Blog.Controllers
         // 登入請求的 POST 方法
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult addArticle(Article_View_Model model)
+        public ActionResult AddArticle(Article_View_Model model)
         {   
             if (ModelState.IsValid)
             {
@@ -50,11 +50,13 @@ namespace com.ftc.Blog.Controllers
             // 如果模型驗證失敗，返回原始的新增文章的視圖，並顯示驗證錯誤訊息
             return View(model);
         }
-        public ActionResult editArticle(int postId)
+        public ActionResult EditArticle(int PostID, string Title, string Content)
         {
             var model = new Article_View_Model
             {
-                PostID = postId,
+                PostID = PostID,
+                Title = Title,
+                Content = Content
                 // 其他属性的设置
             };
             return View(model);
