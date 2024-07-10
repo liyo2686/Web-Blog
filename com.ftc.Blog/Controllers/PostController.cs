@@ -14,7 +14,7 @@ namespace com.ftc.Blog.Controllers
     public class PostController : Controller
     {
         // GET: Post
-        public ActionResult Index(string searchString, int? page)
+        public ActionResult Index(string searchString, string currentFilter, int? page)
         {
             int currentUserId = GetCurrentUserIdFromCookie();
             ViewBag.CurrentUserId = currentUserId; // 或者使用 ViewData 傳遞
@@ -32,8 +32,15 @@ namespace com.ftc.Blog.Controllers
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     articles = articles.Where(a => a.Title.Contains(searchString)).ToList();
+                    currentFilter = searchString;
+                }
+                else
+                {
+                    searchString = currentFilter;
                 }
 
+                ViewBag.CurrentSort = searchString;
+                ViewBag.CurrentFilter = currentFilter;
                 int pageSize = 10;
                 int pageNumber = (page ?? 1);
                 IPagedList<Article_View_Model> pagedArticles = articles.OrderByDescending(a => a.CreatedTime).ToPagedList(pageNumber, pageSize);

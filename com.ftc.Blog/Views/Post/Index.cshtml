@@ -9,7 +9,7 @@
 <h2>Post</h2>
 
 <main>
-    @using (Html.BeginForm("Index", "Post", FormMethod.Post))
+    @using (Html.BeginForm("Index", "Post", FormMethod.Get))
     {
         <p>
             @Html.TextBox("searchString", ViewBag.CurrentFilter as string, new { placeholder = "輸入搜尋名稱" })
@@ -71,9 +71,9 @@
     </table>
 
 
-    <div class="pager">
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.CurrentFilter }))
-    </div>
+        <div class="pager">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.CurrentFilter, currentFilter = ViewBag.CurrentFilter }))
+        </div>
     </div>
 </main>
 
