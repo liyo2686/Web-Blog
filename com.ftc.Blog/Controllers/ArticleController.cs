@@ -22,7 +22,7 @@ namespace com.ftc.Blog.Controllers
                     Title = Article.Title,
                     Content = Article.Content,
                     UserID = Article.UserID,
-                    CreatedTime = DateTime.Now
+                    CreatedTime = Article.CreatedTime
                 };
                 return View(model);
             }
@@ -65,21 +65,28 @@ namespace com.ftc.Blog.Controllers
             // 如果模型驗證失敗，返回原始的新增文章的視圖，並顯示驗證錯誤訊息
             return View(model);
         }
-        public ActionResult EditArticle(int PostID, string Title, string Content)
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ShowEditArticle(int PostID)
         {
-            var model = new Article_View_Model
+            using (WebBlogDBEntities1 db = new WebBlogDBEntities1())
             {
-                PostID = PostID,
-                Title = Title,
-                Content = Content
-                // 其他属性的设置
-            };
-            return View(model);
+                var Article = db.Articles.FirstOrDefault(u => u.PostID == PostID);
+                var model = new Article_View_Model
+                {
+                    Title = Article.Title,
+                    Content = Article.Content,
+                    UserID = Article.UserID,
+                    CreatedTime = Article.CreatedTime
+                };
+                return View("EditArticle",model);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult editArticle(Article_View_Model model)
+        public ActionResult EditArticle(Article_View_Model model)
         {
             if (ModelState.IsValid)
             {
