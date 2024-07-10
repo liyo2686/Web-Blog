@@ -12,6 +12,21 @@ namespace com.ftc.Blog.Controllers
     {
 
         // GET: Article
+        public ActionResult Index(int PostID)
+        {
+            using (WebBlogDBEntities1 db = new WebBlogDBEntities1())
+            {
+                var Article = db.Articles.FirstOrDefault(u => u.PostID == PostID);
+                var model = new Article_View_Model
+                {
+                    Title = Article.Title,
+                    Content = Article.Content,
+                    UserID = Article.UserID,
+                    CreatedTime = DateTime.Now
+                };
+                return View(model);
+            }
+        }
         public ActionResult AddArticle()
         {
             return View();

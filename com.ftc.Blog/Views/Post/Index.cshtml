@@ -23,7 +23,6 @@
                 <th>標題</th>
                 <th>內容</th>
                 <th>建立時間</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +30,17 @@
             {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Content)</td>
+                    <td>
+                        <a href="@Url.Action("Index", "Article", new { PostID = item.PostID })">
+                            @if (item.Content.Length > 10)
+                            {
+                                @item.Content.Substring(0, 10)
+                            }
+                            else
+                            {
+                                @item.Content
+                            }
+</td>
                     <td>@Html.DisplayFor(modelItem => item.CreatedTime)</td>
                     <td>
                         @if (User.Identity.IsAuthenticated && item.UserID == currentUserId)

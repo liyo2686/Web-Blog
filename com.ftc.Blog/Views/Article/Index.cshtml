@@ -1,0 +1,36 @@
+﻿@model com.ftc.Blog.Models.Article_View_Model
+@{
+    ViewBag.Title = "Index";
+}
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Web Blog</h1>
+        <p class="lead">檢視文章</p>
+    </section>
+    <div class="row">
+        <div>
+            @using (Html.BeginForm("editArticle", "Article", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.Hidden("postId", Model.PostID)
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    @Html.LabelFor(a => a.Title, new { @class = "control-label col-md-2", @readonly = "readonly" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(a => a.Title, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(a => a.Content, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(a => a.Content, new { @class = "form-control", @readonly = "readonly" })
+                        @Html.ValidationMessageFor(a => a.Content, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</main>
+
