@@ -16,36 +16,44 @@ namespace com.ftc.Blog.Controllers
         // GET: Post
         public ActionResult Index(string searchString, string currentFilter, int? page)
         {
-            int currentUserId = GetCurrentUserIdFromCookie();
-            ViewBag.CurrentUserId = currentUserId; // 或者使用 ViewData 傳遞
-            using (WebBlogDBEntities1 db = new WebBlogDBEntities1())
+            if (this.User.Identity.IsAuthenticated)
             {
-                List<Article_View_Model> articles = db.Articles.Select(a => new Article_View_Model
+                int currentUserId = GetCurrentUserIdFromCookie();
+                ViewBag.CurrentUserId = currentUserId; // 或者使用 ViewData 傳遞
+                using (WebBlogDBEntities1 db = new WebBlogDBEntities1())
                 {
-                    PostID = a.PostID,
-                    UserID = a.UserID,
-                    Title = a.Title,
-                    Content = a.Content,
-                    CreatedTime = a.CreatedTime
-                }).ToList();
+                    List<Article_View_Model> articles = db.Articles.Select(a => new Article_View_Model
+                    {
+                        PostID = a.PostID,
+                        UserID = a.UserID,
+                        Title = a.Title,
+                        Content = a.Content,
+                        CreatedTime = a.CreatedTime
+                    }).ToList();
 
-                if (!String.IsNullOrEmpty(searchString))
-                {
-                    articles = articles.Where(a => a.Title.Contains(searchString)).ToList();
-                    currentFilter = searchString;
-                }
-                else
-                {
-                    searchString = currentFilter;
-                }
+                    if (!String.IsNullOrEmpty(searchString))
+                    {
+                        articles = articles.Where(a => a.Title.Contains(searchString)).ToList();
+                        currentFilter = searchString;
+                    }
+                    else
+                    {
+                        searchString = currentFilter;
+                    }
 
-                ViewBag.CurrentSort = searchString;
-                ViewBag.CurrentFilter = currentFilter;
-                int pageSize = 10;
-                int pageNumber = (page ?? 1);
-                IPagedList<Article_View_Model> pagedArticles = articles.OrderByDescending(a => a.CreatedTime).ToPagedList(pageNumber, pageSize);
-                return View(pagedArticles);
+                    ViewBag.CurrentSort = searchString;
+                    ViewBag.CurrentFilter = currentFilter;
+                    int pageSize = 10;
+                    int pageNumber = (page ?? 1);
+                    IPagedList<Article_View_Model> pagedArticles = articles.OrderByDescending(a => a.CreatedTime).ToPagedList(pageNumber, pageSize);
+                    return View(pagedArticles);
+                }
             }
+            else
+            {
+                return RedirectToAction("Index","Login");
+            }
+
         }
 
         private int GetCurrentUserIdFromCookie()

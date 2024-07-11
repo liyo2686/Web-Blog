@@ -14,17 +14,24 @@ namespace com.ftc.Blog.Controllers
         // GET: Article
         public ActionResult Index(int PostID)
         {
-            using (WebBlogDBEntities1 db = new WebBlogDBEntities1())
+            if (this.User.Identity.IsAuthenticated)
             {
-                var Article = db.Articles.FirstOrDefault(u => u.PostID == PostID);
-                var model = new Article_View_Model
+                using (WebBlogDBEntities1 db = new WebBlogDBEntities1())
                 {
-                    Title = Article.Title,
-                    Content = Article.Content,
-                    UserID = Article.UserID,
-                    CreatedTime = Article.CreatedTime
-                };
-                return View(model);
+                    var Article = db.Articles.FirstOrDefault(u => u.PostID == PostID);
+                    var model = new Article_View_Model
+                    {
+                        Title = Article.Title,
+                        Content = Article.Content,
+                        UserID = Article.UserID,
+                        CreatedTime = Article.CreatedTime
+                    };
+                    return View(model);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
             }
         }
         public ActionResult AddArticle()
