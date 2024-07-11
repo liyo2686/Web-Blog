@@ -2,53 +2,108 @@
 @{
     ViewBag.Title = "Register";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Register - Web Blog</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="@Url.Content("~/css/styles.css")" rel="stylesheet" />
+    <style>
+        body {
+            background: url('@Url.Content("~/assets/img/home-bg.jpg")') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        .login-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+        }
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.4);
+            color: white;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Content-->
+    <main class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="login-container">
+                    <section class="my-5" aria-labelledby="aspnetTitle">
+                        <h1 id="title">Register</h1>
+                        <p class="lead">Please register account</p>
+                    </section>
+                    <div class="my-5">
+                        @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">Web Blog</h1>
-        <p class="lead">Register page</p>
-    </section>
-    <div class="row">
-        <div>
-            @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Account, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Account, new { @class = "form-control", placeholder = "請輸入帳號" })
-                        @Html.ValidationMessageFor(m => m.Account, "", new { @class = "text-danger" })
+                            <div class="form-group mb-3">
+                                @Html.LabelFor(m => m.Account, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Account, new { @class = "form-control", placeholder = "請輸入帳號" })
+                                    @Html.ValidationMessageFor(m => m.Account, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                @Html.LabelFor(m => m.Password, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "請輸入密碼" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                @Html.LabelFor(m => m.Email, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "請輸入電子信箱" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <button type="submit" class="btn btn-primary" id="registerButton">註冊</button>
+                                    <button type="button" class="btn btn-primary" id="directLoginPageButton">已有帳號了?點選登入</button>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" class="btn btn-primary">註冊</button>
-                        <button type="button" class="btn btn-primary" id="directLoginPageButton">已有帳號了?點選登入</button>
-                    </div>
-                </div>
-
-            }
+            </div>
         </div>
-    </div>
-</main>
+    </main>
+    <script src="@Url.Content("~/js/scripts.js")"></script>
+    <script type="text/javascript">
+        document.getElementById("registerButton").onclick = function () {
+            window.location.href = '@Url.Action("Register", "Register")';
+        };
+    </script>
+</body>
+</html>
 @section Scripts {
     <script type="text/javascript">
         document.getElementById("directLoginPageButton").onclick = function () {
